@@ -1,8 +1,6 @@
 import { ClassConstructor, plainToClass } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 
-export const QUEUE_NAME = 'event_driven_demo';
-
 export const cast = async <T>(
   clazz: ClassConstructor<T>,
   obj: object,

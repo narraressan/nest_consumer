@@ -11,8 +11,8 @@ export class MessageProcessor implements OnModuleInit, OnModuleDestroy {
 
   async onModuleInit() {
     this.queue = new Redis({
-      host: 'localhost',
-      port: 6379,
+      host: process.env.QUEUE_HOST,
+      port: parseInt(process.env.QUEUE_PORT),
     });
     await this.readMessages();
   }
@@ -29,7 +29,7 @@ export class MessageProcessor implements OnModuleInit, OnModuleDestroy {
       'COUNT',
       1,
       'STREAMS',
-      'event_driven_demo',
+      process.env.QUEUE_NAME,
       lastId,
     );
     const messages = response?.[0]?.[1] || [];

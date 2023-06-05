@@ -1,0 +1,19 @@
+# Ref: https://wanago.io/2023/01/16/api-nestjs-docker-compose/
+
+version: '3.8'
+
+services:
+  redis:
+    image: "redis:6.0-alpine"
+    ports:
+      - "6379:6379"
+  
+  # enable only when target image exists
+  service:
+    image: nest_consumer:v1
+    restart: always
+    depends_on:
+      - redis
+    environment:
+      - QUEUE_HOST=redis
+

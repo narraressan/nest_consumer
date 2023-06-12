@@ -12,6 +12,8 @@ services:
   service:
     image: nest_consumer:v1
     restart: always
+    deploy:
+      replicas: 2
     depends_on:
       - redis
     environment:

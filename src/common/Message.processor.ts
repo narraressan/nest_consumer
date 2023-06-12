@@ -51,7 +51,7 @@ export class MessageProcessor implements OnModuleInit, OnModuleDestroy {
     if (this.isAlive) await this.readMessages(lastKey);
   }
 
-  private async processEvent(event: ExampleEventProducerInput) {
+  async processEvent(event: ExampleEventProducerInput) {
     console.log(`Received: ${JSON.stringify(event)}`);
 
     // TODO

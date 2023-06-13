@@ -32,5 +32,3 @@ docker logout
 ```
 
 ### TODO
-
-- add github pipelines
